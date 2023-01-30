@@ -1,10 +1,11 @@
 import React from "react";
 import SortBy from "./SortBy";
 import FilterBy from "./FilterBy";
+import { FetchedData } from "../../interfece/ProductInterface";
 
 type Props = {
   setFilter: (filter: string) => void;
-  passItems: string[];
+  items: FetchedData[];
   setSort: (sort: string) => void;
 };
 const Nav = (props: Props) => {
@@ -12,7 +13,7 @@ const Nav = (props: Props) => {
     <nav className="product-filter">
       <h1>Jackets</h1>
       <div className="sort">
-        <FilterBy setFilter={props.setFilter} passItems={props.passItems} />
+        <FilterBy items={props.items} setFilter={props.setFilter} />
         <SortBy setSort={props.setSort} />
       </div>
     </nav>
