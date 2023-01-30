@@ -6,6 +6,7 @@ type Props = {
   items: FetchedData[];
 };
 const FilterBy = (props: Props) => {
+    console.log(props)
   const categories = props.items
     .map((option: FetchedData) => option.category)
     .filter((value: Category, index: Number, array: Category[]) => {

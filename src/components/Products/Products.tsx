@@ -20,7 +20,7 @@ interface Props {
 function getProducts(items: ItemProps[], filter: string): JSX.Element[] {
   return items
     .map((product: ItemProps) => {
-      return <Item id={product.id} image={product.image} price={product.price} title={product.title} />;
+      return <Item key={product.id} id={product.id} image={product.image} price={product.price} title={product.title} />;
     })
     .filter((value) => {
       // Filter Products based on chosen Category
