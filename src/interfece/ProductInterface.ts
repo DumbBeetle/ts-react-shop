@@ -1,5 +1,5 @@
 export interface FetchedData {
-  id?: number;
+  id: number;
   title: string;
   price: number;
   description: string;

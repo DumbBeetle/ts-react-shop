@@ -1,17 +1,19 @@
 import React from "react";
 import { useCartContext } from "../../hooks/CartContext";
 import { Link } from "react-router-dom";
+import { FetchedData } from "../../interfece/ProductInterface";
 
-type ItemProps = {
-  id: number;
-  title: string;
-  price: number;
-  image: string;
-};
-
-const Item = (props: ItemProps) => {
+const Item = (props: FetchedData) => {
   const cartContext = useCartContext();
-  const { id, title, price, image } = props;
+  const {
+    id,
+    title,
+    price,
+    image,
+    description,
+    category,
+    rating: { rate, count },
+  } = props;
   const quantity = cartContext.getProductQuantity(id);
   return (
     <div className="product-card">
