@@ -1,0 +1,18 @@
+header nav {
+    display: grid;
+    grid-template-columns: 1fr 1fr 4fr;
+}
+
+header nav div {
+    background: hsl(200, 80%, 45%);
+    padding: 1em 0.5em;
+    text-align: center;
+    cursor: pointer;
+}
+
+header nav div:hover {
+    background: hsl(200, 80%, 60%);
+    border: 2px black solid;
+    border-bottom: 0 transparent;
+    border-top: 0 transparent;
+}

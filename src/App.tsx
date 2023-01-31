@@ -1,15 +1,18 @@
 import React from "react";
 import "./App.css";
 import { CartProvider } from "./hooks/CartContext";
-import { Route, Router, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
 import NotFound from "./pages/NotFound";
 import About from "./pages/About";
 import SingleProduct from "./pages/SingleProduct";
+import Header from "./components/Header/Header";
+import Footer from "./components/Footer/Footer";
 
 function App() {
   return (
     <div className="App">
+      <Header />
       <CartProvider>
         <Routes>
           <Route path="/" element={<Home />} />
@@ -18,6 +21,7 @@ function App() {
           <Route path="*" element={<NotFound />} />
         </Routes>
       </CartProvider>
+      <Footer />
     </div>
   );
 }

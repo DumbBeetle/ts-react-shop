@@ -7,14 +7,13 @@ import { FetchedData } from "../interfece/ProductInterface";
 
 const SingleProduct = () => {
   const { id } = useParams();
-  const { data, error, isLoading, sort, setSort, filter, setFilter } = useProductFetch(id);
-  if (error || data === undefined) {
-    return <NotFound />;
-  }
+  const { data, error, isLoading } = useProductFetch(id);
   if (isLoading) {
     return <Loading />;
   }
-  // @ts-ignore
+  if (error || data === undefined) {
+    return <NotFound />;
+  }
   const {
     title,
     price,

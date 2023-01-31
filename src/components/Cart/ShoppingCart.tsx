@@ -12,6 +12,7 @@ const ShoppingCart = () => {
         productData={item}
         subtractButton={cartContext.decrementProduct}
         addButton={cartContext.incrementProduct}
+        removeButton={cartContext.removeFromCart}
       />
     );
   });

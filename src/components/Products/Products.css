@@ -1,0 +1,10 @@
+.products {
+    margin: auto;
+    width: 90%;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}

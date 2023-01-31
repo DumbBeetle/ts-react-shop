@@ -1,11 +1,12 @@
 import { createContext, ReactNode, useContext, useState } from "react";
+import { FetchedData } from "../interfece/ProductInterface";
 
 type CartProviderProps = {
   children: ReactNode;
 };
 type Context = {
   getCart: () => Product[];
-  incrementProduct: (id: number) => void;
+  incrementProduct: (item: FetchedData) => void;
   decrementProduct: (id: number) => void;
   getTotalCount: () => number;
   getTotalPrice: () => string;
@@ -13,10 +14,8 @@ type Context = {
   removeFromCart: (id: number) => void;
 };
 
-interface Product {
-  id: number;
+interface Product extends FetchedData {
   quantity: number;
-  price: number;
 }
 
 const CartContext = createContext({} as Context);
@@ -32,13 +31,13 @@ export function CartProvider({ children }: CartProviderProps) {
     return cartProducts;
   }
 
-  function incrementProduct(id: number) {
-    setCartProducts((currentProducts: Product[]) => {
-      if (currentProducts.find((product: Product) => product.id === id) == undefined) {
-        return [...currentProducts, { id, quantity: 1, price: 2 }];
+  function incrementProduct(item: FetchedData) {
+    setCartProducts((currentProducts: any) => {
+      if (currentProducts.find((product: Product) => product.id === item.id) === undefined) {
+        return [...currentProducts, { ...item, quantity: 1 }];
       }
       return currentProducts.map((product: Product) => {
-        if (product.id === id) {
+        if (product.id === item.id) {
           return { ...product, quantity: product.quantity + 1 };
         }
         return product;

@@ -1,6 +1,7 @@
 import React from "react";
 import Item from "./Item";
 import { FetchedData } from "../../interfece/ProductInterface";
+import "./Products.css";
 
 interface Props {
   filter: string;

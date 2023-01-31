@@ -1,7 +1,6 @@
 import React, { Dispatch, SetStateAction } from "react";
 import Nav from "../components/Nav";
 import useProductFetch from "../hooks/useProductFetch";
-import { State } from "swr";
 import Loading from "../components/Loading/Loading";
 import Products from "../components/Products/Products";
 import { FetchedData } from "../interfece/ProductInterface";
@@ -23,7 +22,7 @@ const Home = () => {
     return <h1>{error.message}</h1>;
   }
   return (
-    <div>
+    <main>
       {data ? (
         <>
           <Nav setFilter={setFilter} items={data} setSort={setSort} />
@@ -32,7 +31,7 @@ const Home = () => {
       ) : (
         <Loading />
       )}
-    </div>
+    </main>
   );
 };
 
