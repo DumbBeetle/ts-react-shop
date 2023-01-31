@@ -1,30 +1,32 @@
 import React from "react";
 import Item from "./Item";
-
-type ItemProps = {
-  id: number;
-  title: string;
-  price: number;
-  description: string;
-  category: string;
-  image: string;
-  rating: { rate: number; count: number };
-};
+import { FetchedData } from "../../interfece/ProductInterface";
 
 interface Props {
   filter: string;
-  items: ItemProps[];
+  items: FetchedData[];
   sort: string;
 }
 
-function getProducts(items: ItemProps[], filter: string): JSX.Element[] {
+function getProducts(items: FetchedData[], filter: string): JSX.Element[] {
   return items
-    .map((product: ItemProps) => {
-      return <Item key={product.id} id={product.id} image={product.image} price={product.price} title={product.title} />;
+    .map((product: FetchedData) => {
+      return (
+        <Item
+          key={product.id}
+          id={product.id}
+          image={product.image}
+          price={product.price}
+          title={product.title}
+          category={product.category}
+          description={product.description}
+          rating={product.rating}
+        />
+      );
     })
     .filter((value) => {
       // Filter Products based on chosen Category
-      return filter === "all products" ? true : value.props.item.category === filter;
+      return filter === "all products" ? true : value.props.category === filter;
     });
 }
 

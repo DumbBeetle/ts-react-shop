@@ -1,4 +1,5 @@
 import { createContext, ReactNode, useContext, useState } from "react";
+import { FetchedData } from "../interfece/ProductInterface";
 
 type CartProviderProps = {
   children: ReactNode;
@@ -30,7 +31,7 @@ export function CartProvider({ children }: CartProviderProps) {
   function incrementProduct(id: number) {
     setCartProducts((currentProducts: Product[]) => {
       if (currentProducts.find((product: Product) => product.id === id) == undefined) {
-        return [...currentProducts];
+        return [...currentProducts, { id, quantity: 1, price: 2 }];
       }
       return currentProducts.map((product: Product) => {
         if (product.id === id) {
