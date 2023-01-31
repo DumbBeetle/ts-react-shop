@@ -1,10 +1,10 @@
 import { createContext, ReactNode, useContext, useState } from "react";
-import { FetchedData } from "../interfece/ProductInterface";
 
 type CartProviderProps = {
   children: ReactNode;
 };
 type Context = {
+  getCart: () => Product[];
   incrementProduct: (id: number) => void;
   decrementProduct: (id: number) => void;
   getTotalCount: () => number;
@@ -27,6 +27,10 @@ export function useCartContext() {
 
 export function CartProvider({ children }: CartProviderProps) {
   const [cartProducts, setCartProducts] = useState<Product[]>([]);
+
+  function getCart() {
+    return cartProducts;
+  }
 
   function incrementProduct(id: number) {
     setCartProducts((currentProducts: Product[]) => {
@@ -79,6 +83,7 @@ export function CartProvider({ children }: CartProviderProps) {
   return (
     <CartContext.Provider
       value={{
+        getCart,
         incrementProduct,
         decrementProduct,
         getProductQuantity,
