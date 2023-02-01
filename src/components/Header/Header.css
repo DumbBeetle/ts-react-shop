@@ -1,18 +1,48 @@
-header nav {
+header {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    z-index: 2;
+    margin-bottom: 1em;
+    background: hsl(200, 80%, 45%);
+    height: 80px;
+}
+
+header nav{
+    width: 50%;
     display: grid;
-    grid-template-columns: 1fr 1fr 4fr;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
 }
 
 header nav div {
-    background: hsl(200, 80%, 45%);
-    padding: 1em 0.5em;
     text-align: center;
     cursor: pointer;
+    position: relative;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-right: 1px black solid;
+    border-left: 1px black solid;
+
+}
+
+header nav div:before{
+    position: absolute;
+    scale: 0.08;
+}
+.store-button:before {
+    content: url("/src/icons/store-svgrepo-com.svg");
+}
+
+.about-button:before {
+    content: url("/src/icons/info-svgrepo-com.svg");
+}
+
+.account-button:before {
+    content: url("/src/icons/account-avatar-head-svgrepo-com.svg");
 }
 
 header nav div:hover {
     background: hsl(200, 80%, 60%);
-    border: 2px black solid;
-    border-bottom: 0 transparent;
-    border-top: 0 transparent;
 }

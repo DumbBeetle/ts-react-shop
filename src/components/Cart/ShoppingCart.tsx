@@ -1,6 +1,7 @@
 import React from "react";
 import { useCartContext } from "../../hooks/CartContext";
 import CartProduct from "./CartProduct";
+import "./ShoppingCart.css";
 
 const ShoppingCart = () => {
   const cartContext = useCartContext();

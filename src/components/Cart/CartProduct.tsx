@@ -1,5 +1,6 @@
 import React from "react";
 import { FetchedData } from "../../interfece/ProductInterface";
+import "./CartProduct.css";
 
 interface Product {
   id: number;

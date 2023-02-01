@@ -2,7 +2,6 @@ import React from "react";
 import SortBy from "./SortBy";
 import FilterBy from "./FilterBy";
 import { FetchedData } from "../../interfece/ProductInterface";
-import ShoppingCart from "../Cart/ShoppingCart";
 
 type Props = {
   setFilter: (filter: string) => void;
@@ -17,7 +16,6 @@ const Nav = (props: Props) => {
         <FilterBy items={props.items} setFilter={props.setFilter} />
         <SortBy setSort={props.setSort} />
       </div>
-      <ShoppingCart />
     </nav>
   );
 };

@@ -165,7 +165,7 @@
 }
 
 .box .side:before {
-    content: url("fragile-svgrepo-com.svg");
+    content: url("/src/icons/fragile-svgrepo-com.svg");
     position: absolute;
     scale: 0.02;
     right: -290px;
