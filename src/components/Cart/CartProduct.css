@@ -10,7 +10,7 @@ section.cart-product {
 /*Title*/
 section.cart-product p {
     display: flex;
-    justify-content: start;
+    justify-content: center;
     align-items: center;
     align-content: center;
     margin: 0px 10px;
@@ -20,27 +20,30 @@ section.cart-product p {
 section.cart-product img {
     width: 100px;
     height: 100px;
+    aspect-ratio: 1/1;
+    object-fit: contain;
+
 }
 
 /*Price*/
 section.cart-product p:last-child {
     justify-content: end;
     margin: 0;
+    width: 75px;
 }
 
-section.cart-product div {
+section.cart-product > div {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 0;
-    gap: 6px;
+    margin-right: 0.4em;
 }
 
 section.cart-product div p {
     margin: 2px;
 }
 
-.button-increment, .button-decrement {
+.cart-product .button-increment, .cart-product .button-decrement {
     font-size: 1.2em;
     width: 1.2em;
     height: 1.2em;
@@ -49,4 +52,19 @@ section.cart-product div p {
     background-color: #b7b7b7;
     box-shadow: 0px 3px 4px 0px rgba(0, 0, 0, 0.4);
     cursor: pointer;
+}
+
+section.cart-product div .middle{
+    text-align: center;
+    width: 100px;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+}
+
+.middle button.button-remove{
+    border: transparent;
+    padding: 0.2em 0.4em;
+    border-radius: 1em;
+    background-color: #b7b7b7;
+    box-shadow: 0px 3px 4px 0px rgba(0, 0, 0, 0.4);
 }

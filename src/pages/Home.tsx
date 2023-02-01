@@ -22,7 +22,7 @@ const Home = () => {
     return <h1>{error.message}</h1>;
   }
   return (
-    <main>
+    <main className="store-main-container">
       {data ? (
         <>
           <Nav setFilter={setFilter} items={data} setSort={setSort} />

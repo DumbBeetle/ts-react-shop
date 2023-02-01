@@ -1,40 +1,17 @@
-.cart-container {
-    position: relative;
-}
-
-.shopping-cart {
+.cart-container > button {
     position: relative;
     width: 100px;
-    height: 80px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: black solid 1px;
+    height: 65px;
+    border-right: 1px black solid;
+    border-left: 1px black solid;
+    border-radius: 0;
     cursor: pointer;
+    color: black;
+    font-family: 'Comfortaa', cursive, sans-serif;
+    font-size: 1em;
 }
 
-.shopping-cart:before {
-    content: url("/src/icons/cart1-svgrepo-com.svg");
-    scale: 0.06;
-}
-
-.cart-quantity {
-    top: 38px;
-    position: absolute;
-}
-
-.cart-product-window {
-    border: black solid 1px;
-    width: 500px;
-    position: absolute;
-    left: -418px;
-    top: 51px;
-    z-index: 100;
-    background-color: white;
-}
-
-.cart-product-window p {
-    display: grid;
-    justify-content: end;
-    margin: 10px;
+.price-paragraph, .total-paragraph{
+    margin: 0.5em;
+    font-size: 1.1rem;
 }

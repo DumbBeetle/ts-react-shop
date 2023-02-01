@@ -8,13 +8,13 @@ const Header = () => {
     <header>
       <nav>
         <Link to={`/`}>
-          <div className="store-button"></div>
+          <div className="store-button">Store</div>
         </Link>
         <Link to={`/about`}>
-          <div className="about-button"></div>
+          <div className="about-button">About</div>
         </Link>
         <Link to={`/about`}>
-          <div className="account-button"></div>
+          <div className="account-button">Account</div>
         </Link>
       </nav>
       <ShoppingCart />

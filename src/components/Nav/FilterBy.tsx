@@ -20,7 +20,7 @@ const FilterBy = (props: Props) => {
   ));
 
   return (
-    <div className="collection-sort">
+    <div className="collection-filter">
       <label htmlFor="">Filter by: </label>
       <select onChange={(event) => props.setFilter(event.target.value)}>{options}</select>
     </div>

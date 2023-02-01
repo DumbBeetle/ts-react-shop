@@ -26,7 +26,7 @@ const Item = (props: FetchedData) => {
       <div className="product-info">
         <h5>{title}</h5>
         <h6>${price}</h6>
-        <div className="buttons">
+        <div className="item-buttons">
           {quantity === 0 ? (
             <button onClick={() => cartContext.incrementProduct(props)} className="add-to-cart">
               Add to Cart
@@ -36,12 +36,14 @@ const Item = (props: FetchedData) => {
               <button className="button-increment" onClick={() => cartContext.incrementProduct(props)}>
                 +
               </button>
-              <p>In cart: {quantity}</p>
+              <div className="middle">
+                <p>In cart: {quantity}</p>
+                <button className="button-remove" onClick={() => cartContext.removeFromCart(id)}>
+                  remove
+                </button>
+              </div>
               <button className="button-decrement" onClick={() => cartContext.decrementProduct(id)}>
                 -
-              </button>
-              <button className="button-remove" onClick={() => cartContext.removeFromCart(id)}>
-                remove
               </button>
             </>
           )}

@@ -31,15 +31,18 @@ const CartProduct = (props: Props) => {
         <button className="button-increment" onClick={() => props.addButton(props.productData)}>
           +
         </button>
-        <p>{quantity}</p>
+        <div className="middle">
+          <p>{quantity}</p>
+          <button className="button-remove" onClick={() => props.removeButton(id)}>
+            remove
+          </button>
+        </div>
+
         <button className="button-decrement" onClick={() => props.subtractButton(id)}>
           -
         </button>
-        <button className="button-decrement" onClick={() => props.removeButton(id)}>
-          remove
-        </button>
       </div>
-      <p>{(price * quantity).toFixed(2)}</p>
+      <p>${(price * quantity).toFixed(2)}</p>
     </section>
   );
 };

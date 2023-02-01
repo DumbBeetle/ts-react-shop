@@ -6,3 +6,8 @@ body {
     background-color: #f6f6f6;
     /*background-color: darkcyan;*/
 }
+
+.store-main-container{
+    display: grid;
+    grid-template-columns: 0.5fr 5fr;
+}
