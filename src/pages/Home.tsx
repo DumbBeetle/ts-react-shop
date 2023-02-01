@@ -1,9 +1,9 @@
 import React, { Dispatch, SetStateAction } from "react";
-import Nav from "../components/Nav";
 import useProductFetch from "../hooks/useProductFetch";
 import Loading from "../components/Loading/Loading";
 import Products from "../components/Products/Products";
 import { FetchedData } from "../interfece/ProductInterface";
+import { Nav } from "../components/Nav/Nav";
 
 const Home = () => {
   interface Data {
@@ -25,7 +25,7 @@ const Home = () => {
     <main className="store-main-container">
       {data ? (
         <>
-          <Nav setFilter={setFilter} items={data} setSort={setSort} />
+          <Nav setFilter={setFilter} items={data} setSort={setSort} filter={filter} />
           <Products items={data} filter={filter} sort={sort} />
         </>
       ) : (

@@ -5,24 +5,37 @@ type Props = {
   setFilter: (filter: string) => void;
   items: FetchedData[];
 };
-const FilterBy = (props: Props) => {
+
+function getCategories(props: Props): string[] {
   const categories = props.items
     .map((option: FetchedData) => option.category)
     .filter((value: Category, index: Number, array: Category[]) => {
       return array.indexOf(value) === index;
     });
   categories.unshift("all products" as Category);
+  return categories;
+}
 
-  const options = categories.map((value, index) => (
-    <option value={value} key={index}>
+function getOptions(props: Props, categories: string[]): JSX.Element[] {
+  return categories.map((value, index) => (
+    <li
+      key={index}
+      onClick={() => {
+        props.setFilter(value);
+      }}
+    >
       {value}
-    </option>
+    </li>
   ));
+}
+
+const FilterBy = (props: Props) => {
+  const categories = getCategories(props);
+  const options = getOptions(props, categories);
 
   return (
     <div className="collection-filter">
-      <label htmlFor="">Filter by: </label>
-      <select onChange={(event) => props.setFilter(event.target.value)}>{options}</select>
+      <ul>{options}</ul>
     </div>
   );
 };

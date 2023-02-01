@@ -1,14 +1,30 @@
-.store-nav{
+.store-nav {
     position: relative;
     height: 100%;
     border-right: 2px black solid;
 }
-.sort{
+
+.sort {
     margin: 1em;
     position: sticky;
     top: 0;
 }
 
-.sort > *{
+.sort > * {
     margin-top: 1em;
+}
+
+.collection-filter > ul {
+    text-transform: uppercase;
+    list-style: none;
+}
+
+.collection-filter > ul li {
+    margin: 0.5em 0;
+    cursor: pointer;
+}
+
+/*TODO: better hover effect and maybe better UI*/
+.collection-filter > ul li:hover {
+    color: blue;
 }
