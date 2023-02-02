@@ -7,9 +7,7 @@ const fetcher = (url: string) =>
   });
 const UseProductFetch = (id: string = "") => {
   const { data, error, isLoading } = useSWR(`https://fakestoreapi.com/products/${id}`, fetcher);
-  const [sort, setSort] = useState<string>("Featured");
-  const [filter, setFilter] = useState<string>("all products");
-  return { data, error, isLoading, sort, setSort, filter, setFilter };
+  return { data, error, isLoading };
 };
 
 export default UseProductFetch;

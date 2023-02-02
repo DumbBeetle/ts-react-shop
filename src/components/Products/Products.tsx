@@ -7,9 +7,10 @@ interface Props {
   filter: string;
   items: FetchedData[];
   sort: string;
+  budget: number[];
 }
 
-function getProducts(items: FetchedData[], filter: string): JSX.Element[] {
+function getProducts(items: FetchedData[], filter: string, budget: number[]): JSX.Element[] {
   return items
     .map((product: FetchedData) => {
       return (
@@ -28,6 +29,10 @@ function getProducts(items: FetchedData[], filter: string): JSX.Element[] {
     .filter((value) => {
       // Filter Products based on chosen Category
       return filter === "all products" ? true : value.props.category === filter;
+    })
+    .filter((value) => {
+      // Filter Products based on chosen budget, budget[0] = min, budget[1] = max
+      return value.props.price >= budget[0] && value.props.price <= budget[1];
     });
 }
 
@@ -102,8 +107,8 @@ function sortByCase(categorySort: string, products: JSX.Element[]): void {
 }
 
 const Products = (props: Props) => {
-  const { items, filter, sort }: Props = props;
-  const products = getProducts(items, filter);
+  const { items, filter, sort, budget }: Props = props;
+  const products = getProducts(items, filter, budget);
   // Sort Products, using Sort State
   sortByCase(sort, products);
   // create element

@@ -33,17 +33,17 @@ const Item = (props: FetchedData) => {
             </button>
           ) : (
             <>
-              <button className="button-increment" onClick={() => cartContext.incrementProduct(props)}>
-                +
+              <button className="button-decrement" onClick={() => cartContext.decrementProduct(id)}>
+                -
               </button>
               <div className="middle">
                 <p>In cart: {quantity}</p>
-                <button className="button-remove" onClick={() => cartContext.removeFromCart(id)}>
+                <button className="button-product-remove" onClick={() => cartContext.removeFromCart(id)}>
                   remove
                 </button>
               </div>
-              <button className="button-decrement" onClick={() => cartContext.decrementProduct(id)}>
-                -
+              <button className="button-increment" onClick={() => cartContext.incrementProduct(props)}>
+                +
               </button>
             </>
           )}

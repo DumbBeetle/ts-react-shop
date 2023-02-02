@@ -5,22 +5,21 @@ import { FetchedData } from "../../interfece/ProductInterface";
 type Props = {
   items: FetchedData[];
   filter: string;
+  setBudget: (budget: number[]) => void;
+  budget: number[];
 };
 
 function getMinMaxValues(items: FetchedData[], filter: string) {
   let min, max: number;
   min = items["0"].price;
-  max = items["0"].price;
+  max = 0;
   for (const [key, value] of Object.entries(items)) {
-    if (filter === value.category) {
+    if (filter === value.category || filter === "all products") {
       const price = value.price;
       if (min > price) {
         min = price;
-        console.log("min = " + min);
-      }
-      if (max < price) {
+      } else if (max < price) {
         max = price;
-        console.log("max = " + max);
       }
     }
   }
@@ -44,35 +43,34 @@ function valuetext(value: number) {
   return `$${value}`;
 }
 
-const minDistance = 10;
 export default function PriceSlider(props: Props) {
-  let [min, max] = getMinMaxValues(props.items, props.filter);
+  const { budget, setBudget }: Props = props;
+  const [min, max] = getMinMaxValues(props.items, props.filter);
   const m = marks(min, max);
-  const [value, setValue] = useState<number[]>([min, max]);
+  const minDistance = max * 0.01;
+  useEffect(() => {
+    setBudget([min, max]);
+  }, [props.filter]);
 
-  const sliderEvent = (event: Event, newValue: number | number[], activeThumb: number) => {
+  const handleChange = (event: Event, newValue: number | number[], activeThumb: number) => {
     if (!Array.isArray(newValue)) {
       return;
     }
     if (activeThumb === 0) {
-      setValue([Math.min(newValue[0], value[1] - minDistance), value[1]]);
+      setBudget([Math.min(newValue[0], budget[1] - minDistance), budget[1]]);
     } else {
-      setValue([value[0], Math.max(newValue[1], value[0] + minDistance)]);
+      setBudget([budget[0], Math.max(newValue[1], budget[0] + minDistance)]);
     }
   };
-  useEffect(() => {
-    setValue([min, max]);
-    console.log("effect");
-  }, []);
   // TODO: fix useEffect
   return (
     <Box sx={{}}>
       <Slider
         getAriaLabel={() => "Minimum distance"}
-        value={value}
         min={min}
         max={max}
-        onChange={sliderEvent}
+        value={budget}
+        onChange={handleChange}
         valueLabelDisplay="auto"
         getAriaValueText={valuetext}
         marks={m}

@@ -28,18 +28,17 @@ const CartProduct = (props: Props) => {
       <img src={image} alt="" />
       <p>{title}</p>
       <div>
-        <button className="button-increment" onClick={() => props.addButton(props.productData)}>
-          +
+        <button className="button-decrement" onClick={() => props.subtractButton(id)}>
+          -
         </button>
         <div className="middle">
           <p>{quantity}</p>
-          <button className="button-remove" onClick={() => props.removeButton(id)}>
+          <button className="button-product-remove" onClick={() => props.removeButton(id)}>
             remove
           </button>
         </div>
-
-        <button className="button-decrement" onClick={() => props.subtractButton(id)}>
-          -
+        <button className="button-increment" onClick={() => props.addButton(props.productData)}>
+          +
         </button>
       </div>
       <p>${(price * quantity).toFixed(2)}</p>

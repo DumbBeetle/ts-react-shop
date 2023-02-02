@@ -35,16 +35,6 @@ h5 {
     height: 60px;
 }
 
-.product-info .item-buttons button:not(.add-to-cart) {
-    font-size: 1.4em;
-    width: 1.2em;
-    height: 1.2em;
-    border: transparent;
-    border-radius: 50%;
-    background-color: #cecece;
-    box-shadow: 0px 3px 4px 0px rgba(0, 0, 0, 0.4);
-    cursor: pointer;
-}
  .add-to-cart {
     background-color: #fdc405;
     border: transparent;
@@ -54,9 +44,19 @@ h5 {
     cursor: pointer;
      box-shadow: 0px 3px 4px 0px rgba(0, 0, 0, 0.4);
 }
+.button-decrement, .button-increment {
+    font-size: 1.4em;
+    width: 1.2em;
+    height: 1.2em;
+    border: transparent;
+    border-radius: 50%;
+    background-color: #cecece;
+    box-shadow: 0px 3px 4px 0px rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+}
 
  .item-buttons .middle{
-     text-align: center;
+     text-align: start;
      width: 100px;
      display: grid;
      grid-template-rows: 1fr 1fr;
@@ -64,12 +64,16 @@ h5 {
      margin: 0 0.4em;
  }
 
-.product-info .item-buttons button.button-remove {
+.button-product-remove {
     font-size: 1rem;
     width: auto;
     height: auto;
     padding: 0.2em;
+    border: transparent;
     border-radius: 5px;
+    background-color: #f85d48;
+    color: white;
+    box-shadow: 0px 3px 4px 0px rgba(0, 0, 0, 0.4);
 }
 
 .add-to-cart:hover {
