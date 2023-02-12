@@ -12,7 +12,7 @@ const Home = () => {
     isLoading: boolean;
   }
 
-  const { data, error, isLoading }: Data = useProductFetch();
+  const { data, error, isLoading }: Data = useProductFetch("https://fakestoreapi.com/products/");
   const [sort, setSort] = useState<string>("Featured");
   const [filter, setFilter] = useState<string>("all products");
   const [budget, setBudget] = useState<number[]>([0, 100]);

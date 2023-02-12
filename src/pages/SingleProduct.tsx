@@ -3,17 +3,19 @@ import { useParams } from "react-router-dom";
 import useProductFetch from "../hooks/useProductFetch";
 import NotFound from "./NotFound";
 import Loading from "../components/Loading/Loading";
-import { FetchedData } from "../interfece/ProductInterface";
+import {Product, ProductDbData} from "../interfece/ProductDBInterface";
 
 const SingleProduct = () => {
-  const { id } = useParams();
-  const { data, error, isLoading } = useProductFetch(id);
+  const {id} = useParams();
+  const {data, error, isLoading} = useProductFetch("http://localhost:8000/api/v1/products/", id);
   if (isLoading) {
-    return <Loading />;
+    return <Loading/>;
   }
   if (error || data === undefined) {
-    return <NotFound />;
+    return <NotFound/>;
   }
+  console.log(data.data.product)
+
   const {
     title,
     price,
@@ -21,7 +23,7 @@ const SingleProduct = () => {
     category,
     image,
     rating: { rate, count },
-  }: FetchedData = data;
+  }: Product = data.data.product;
   return (
     <div className="product-page">
       <div className="product-image">
